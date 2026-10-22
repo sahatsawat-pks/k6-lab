@@ -19,8 +19,8 @@ export default function () {
  check(res, {
  'status is 200': (r) => r.status === 200,
  'no pepperoni': (r) =>
- !r.json('pizza.ingredients').some((i) => i.name === 'Pepperoni'),
- 'no knife needed': (r) => r.json('pizza.tool') !== 'Knife',
+ r.json('pizza.ingredients').some((i) => i.name !== 'Pepperoni'),
+ 'no knife needed': (r) => r.json('pizza.tools') !== 'Knife',
  });
  sleep(1);
 }
